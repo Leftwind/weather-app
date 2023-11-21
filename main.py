@@ -13,7 +13,7 @@ def home():
 def about(station, date):
 
     #We only need the temperature for the dic, the rest will be asked to the user. 
-
+    temperature = 23
     return {"statioon": station,
             "date": date,
             "temperature": temperature}
