@@ -2,7 +2,7 @@ from flask import Flask, render_template
 
 
 #Website Object
-app = Flask("Website")
+app = Flask(__name__)
 
 @app.route("/")
 def home():
@@ -11,8 +11,12 @@ def home():
 
 @app.route("/api/v1/<statioon>/<date>")
 def about(station, date):
-    
-    return render_template("about.html")
 
+    #We only need the temperature for the dic, the rest will be asked to the user. 
 
-app.run(debug=True)
+    return {"statioon": station,
+            "date": date,
+            "temperature": temperature}
+
+if __name__ == '__main__':
+   app.run(debug=True, port=5001)
